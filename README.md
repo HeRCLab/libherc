@@ -23,7 +23,15 @@ Code in this repository requires the following:
 **Description**: this library provides argument parsing, similar to Python's
 argparse.
 
-**Changes**: this library has no changes compare to it's upstream release.
+**Changes**: this library has no changes compared to it's upstream release.
+
+## `attractivechaos/klib/khash.h`
+
+*[attractivechaos/klib](https://github.com/attractivechaos/klib/) / MIT / 928581a78413bed4efa956731b35b18a638f20f3*
+
+**Description**: this library provides a hash table implementation.
+
+**Changes**: this library has no changes compared to it's upstream release.
 
 # Installation
 
@@ -66,6 +74,7 @@ See [`./doc/README.md`](./doc/README.md).
 
 * 0.0.0
   * Add cofyc/argparse v1.0.2
+  * Add khash 928581a78413bed4efa956731b35b18a638f20f3
 
 # License
 

@@ -1,6 +1,13 @@
 # libherc - Documentation
 
+# Library Documentation
+
+* [khash](./khash.md) - official khash documentation, plus some additional notes.
+
 # Cookbook
+
+The Cookbook aims to have useful, representative examples that can be easily
+used as templates.
 
 The [`./cookbook`](./cookbook) directory contains examples of using libherc.
 The examples are discussed below.
@@ -47,4 +54,27 @@ $ ldd a.out
         libherc.so => /usr/local/lib/libherc.so (0x00007f56e5557000)
         libc.so.6 => /usr/lib/libc.so.6 (0x00007f56e535b000)
         /lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f56e5563000)
+```
+
+## Hash Tables
+
+[`./cookbook/hashtable`](./bookbook/hashtable/)
+
+This example demonstrates how to utilize the hash table library provided by
+`klib`.
+
+
+```
+$ make
+cc -I/usr/local/include/herc main.c -lherc -L/usr/local/lib
+$ ./a.out 
+h[key2]='val2'
+foo not in h
+key2 not in h
+--- iterate by key ---
+h[key3]='val3'
+h[key1]='val1'
+--- iterate by value ---
+h contains value 'val3'
+h contains value 'val1'
 ```
