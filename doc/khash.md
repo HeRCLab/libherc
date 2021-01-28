@@ -1,14 +1,18 @@
 # libherc - Documentation - khash
 
+*[back to documentation index](./README.md)*
+
 ```c
 #include <herc/khash.h>
 ```
 
-Want to get started quickly? Check out [the hashtable cookbook](./cookbook/hashtable).
+Want to get started quickly? Check out [the hashtable
+cookbook](./cookbook/hashtable).
 
 # Exported Functions
 
-The below documentation is reproduced from `khash.h`.
+The below documentation is reproduced from `khash.h`, with some modifications
+for formatting. The bodies of several macros are also removed for brevity.
 
 ```c
 /*! @function
@@ -17,53 +21,35 @@ The below documentation is reproduced from `khash.h`.
   @return       The hash value [khint_t]
  */
 #define kh_int_hash_func(key) (khint32_t)(key)
+
 /*! @function
   @abstract     Integer comparison function
  */
 #define kh_int_hash_equal(a, b) ((a) == (b))
+
 /*! @function
   @abstract     64-bit integer hash function
   @param  key   The integer [khint64_t]
   @return       The hash value [khint_t]
  */
 #define kh_int64_hash_func(key) (khint32_t)((key)>>33^(key)^(key)<<11)
+
 /*! @function
   @abstract     64-bit integer comparison function
  */
 #define kh_int64_hash_equal(a, b) ((a) == (b))
-/*! @function
-  @abstract     const char* hash function
-  @param  s     Pointer to a null terminated string
-  @return       The hash value
- */
-static kh_inline khint_t __ac_X31_hash_string(const char *s)
-{
-	khint_t h = (khint_t)*s;
-	if (h) for (++s ; *s; ++s) h = (h << 5) - h + (khint_t)*s;
-	return h;
-}
+
 /*! @function
   @abstract     Another interface to const char* hash function
   @param  key   Pointer to a null terminated string [const char*]
   @return       The hash value [khint_t]
  */
 #define kh_str_hash_func(key) __ac_X31_hash_string(key)
+
 /*! @function
   @abstract     Const char* comparison function
  */
 #define kh_str_hash_equal(a, b) (strcmp(a, b) == 0)
-
-static kh_inline khint_t __ac_Wang_hash(khint_t key)
-{
-    key += ~(key << 15);
-    key ^=  (key >> 10);
-    key +=  (key << 3);
-    key ^=  (key >> 6);
-    key += ~(key << 11);
-    key ^=  (key >> 16);
-    return key;
-}
-#define kh_int_hash_func2(key) __ac_Wang_hash((khint_t)key)
 
 /* --- END OF HASH FUNCTIONS --- */
 
@@ -275,10 +261,10 @@ The following section is reproduced with minor formatting edits from the [offici
 
 ## Synopsis
 
-* Functionality: generic hash table with [[open addressing|http://en.wikipedia.org/wiki/Open_addressing]]
-* Library source code: [[khash.h|https://github.com/attractivechaos/klib/blob/master/khash.h]]
+* Functionality: generic hash table with [open addressing](http://en.wikipedia.org/wiki/Open_addressing)
+* Library source code: [khash.h](https://github.com/attractivechaos/klib/blob/master/khash.h)
 * Dependencies: none
-* Related articles: [[Implementing generic hash library in C|https://attractivechaos.wordpress.com/2008/09/02/implementing-generic-hash-library-in-c/]], [[Another look at my old benchmarks|https://attractivechaos.wordpress.com/2008/10/07/another-look-at-my-old-benchmark/]], [[Comparison of hash table libraries|https://attractivechaos.wordpress.com/2008/08/28/comparison-of-hash-table-libraries/]] and [[Revisiting hash table performance|https://attractivechaos.wordpress.com/2018/01/13/revisiting-hash-table-performance/]]
+* Related articles: [Implementing generic hash library in C](https://attractivechaos.wordpress.com/2008/09/02/implementing-generic-hash-library-in-c/), [Another look at my old benchmarks](https://attractivechaos.wordpress.com/2008/10/07/another-look-at-my-old-benchmark/), [Comparison of hash table libraries](https://attractivechaos.wordpress.com/2008/08/28/comparison-of-hash-table-libraries/) and [Revisiting hash table performance](https://attractivechaos.wordpress.com/2018/01/13/revisiting-hash-table-performance)
 
 ## Example
 

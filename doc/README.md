@@ -2,6 +2,7 @@
 
 # Library Documentation
 
+* [argparse](./argparse.md) - exported functions from argparse.
 * [khash](./khash.md) - official khash documentation, plus some additional notes.
 
 # Cookbook
