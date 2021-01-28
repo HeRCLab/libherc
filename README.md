@@ -62,6 +62,13 @@ See [`./doc/README.md`](./doc/README.md).
 * `./artifacts` - source tarballs from upstream libraries
 * `./doc` - documentation and examples
 
+# Version History
+
+* 0.0.0
+  * Add cofyc/argparse v1.0.2
+
 # License
 
-See [./LICENSE](./LICENSE).
+See [./LICENSE](./LICENSE). This license only applies to code written or
+modifications made here. Many files may be licensed by their respective
+upstreams, which is documented above in this README file.
