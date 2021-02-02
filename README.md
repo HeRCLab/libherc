@@ -91,6 +91,8 @@ argparse.
   inter-operating with other HeRC libraries, since they can all use a common
   type to represent the same data. This is a good candidate for automated code
   generation.
+* [`sheredom/subprocess.h`](https://github.com/sheredom/subprocess.h) seems like
+  nice wrapper that offers Python `subprocess`-like functionality.
 
 ## Wishlist
 
