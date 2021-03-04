@@ -64,6 +64,16 @@ argparse.
 
 **Changes**: this library has no changes compared to its upstream release.
 
+## `rxi/vec`
+
+*[rxi/vec](https://github.com/rxi/vec) / [MIT](https://github.com/rxi/vec/blob/v0.2.1/LICENSE) / [v0.2.1](https://github.com/rxi/vec/releases/tag/v0.2.1)*
+
+**Description**: this library provides type-safe dynamically-resizeable vectors
+similar to `std::vector` in C++.
+
+**Changes**: this library has no changes compared to its upstream release.
+
+
 # Directory Structure
 
 * `./src` - source code for the herclib libraries
@@ -75,11 +85,11 @@ argparse.
 * 0.0.0
   * Add cofyc/argparse v1.0.2
   * Add khash 928581a78413bed4efa956731b35b18a638f20f3
+* 0.0.1
+  * Add rxi/vec 0.2.1
 
 # Roadmap
 
-* Add [rxi/vec](https://github.com/rxi/vec) for type-safe dynamically resized
-  vectors.
 * Add `stb_image.h` and `stb_image_write.h` from
   [nothings/stb](https://github.com/nothings/stb) for reading and writing
   images.

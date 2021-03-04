@@ -4,6 +4,7 @@
 
 * [argparse](./argparse.md) - exported functions from argparse.
 * [khash](./khash.md) - official khash documentation, plus some additional notes.
+* [vec](./vec.md) - official vec documentation, with some edits.
 
 # Cookbook
 
@@ -59,7 +60,7 @@ $ ldd a.out
 
 ## Hash Tables
 
-[`./cookbook/hashtable`](./bookbook/hashtable/)
+[`./cookbook/hashtable`](./cookbook/hashtable/)
 
 This example demonstrates how to utilize the hash table library provided by
 `klib`.
@@ -78,4 +79,43 @@ h[key1]='val1'
 --- iterate by value ---
 h contains value 'val3'
 h contains value 'val1'
+```
+
+## Vectors
+
+[`./cookbook/vec`](./cookbook/vec/)
+
+This example demonstrates how to use both vectors of primitive types, as well
+as vectors that contain pointers to a custom structure type.
+
+```
+$ make
+cc -I/usr/local/include/herc -g main.c -lherc -L/usr/local/lib
+$ ./a.out 
+creating a vector of integers... 
+inserting numbers 0...9 ...
+displaying numbers from vector:
+at index i=0, vector value is 0
+at index i=1, vector value is 1
+at index i=2, vector value is 2
+at index i=3, vector value is 3
+at index i=4, vector value is 4
+at index i=5, vector value is 5
+at index i=6, vector value is 6
+at index i=7, vector value is 7
+at index i=8, vector value is 8
+at index i=9, vector value is 9
+creating a vector of nodes...
+inserting 10 nodes... 
+displaying nodes from the vector:
+at index i=0, node.x=0, node.y=10
+at index i=1, node.x=1, node.y=9
+at index i=2, node.x=2, node.y=8
+at index i=3, node.x=3, node.y=7
+at index i=4, node.x=4, node.y=6
+at index i=5, node.x=5, node.y=5
+at index i=6, node.x=6, node.y=4
+at index i=7, node.x=7, node.y=3
+at index i=8, node.x=8, node.y=2
+at index i=9, node.x=9, node.y=1
 ```
