@@ -19,7 +19,7 @@ INCLUDE_DIR?=$(PREFIX)/include
 LIB_DIR=$(PREFIX)/lib
 BIN_DIR=$(PREFIX)/bin
 
-LIBHERC_VERSION=0.0.0
+LIBHERC_VERSION=0.0.1
 
 sources = $(wildcard src/*.c)
 headers = $(wildcard src/*.h)
@@ -49,7 +49,7 @@ install:
 	mkdir -p "$(INCLUDE_DIR)/herc"
 	echo '#!/bin/sh' > "$(BIN_DIR)/libherc-config"
 	echo 'VERSION="$(LIBHERC_VERSION)"' >> "$(BIN_DIR)/libherc-config"
-	echo 'USAGE="libherc-config [--cflags] [--libs] [--version] [--help]"' >> "$(BIN_DIR)/libherc-config"
+	echo 'USAGE="libherc-config [--cflags] [--libs] [--version] [--want VERSION] [--help]"' >> "$(BIN_DIR)/libherc-config"
 	echo 'if [ $$# -lt 1 ] ; then echo "$$USAGE" ; exit 1 ; fi' >> "$(BIN_DIR)/libherc-config"
 	echo 'while true ; do' >> "$(BIN_DIR)/libherc-config"
 	echo 'if [ $$# -lt 1 ] ; then exit 0' >> "$(BIN_DIR)/libherc-config"
@@ -57,6 +57,10 @@ install:
 	echo 'elif [ "$$1" = "--cflags" ] ; then echo "-I$(INCLUDE_DIR)/herc" ; shift' >> "$(BIN_DIR)/libherc-config"
 	echo 'elif [ "$$1" = "--libs" ] ; then echo "-lherc -L$(LIB_DIR)" ; shift' >> "$(BIN_DIR)/libherc-config"
 	echo 'elif [ "$$1" = "--version" ] ; then echo "$$VERSION" ; shift' >> "$(BIN_DIR)/libherc-config"
+	echo 'elif [ "$$1" = "--want" ] ; then shift; WANT_VERSION="$$1" ; shift;' >> "$(BIN_DIR)/libherc-config"
+	echo 'if [ "$$WANT_VERSION" = "0.0.0" ] ; then exit 0;' >> "$(BIN_DIR)/libherc-config"
+	echo 'elif [ "$$WANT_VERSION" = "0.0.1" ] ; then exit 0;' >> "$(BIN_DIR)/libherc-config"
+	echo 'else exit 1; fi' >> "$(BIN_DIR)/libherc-config"
 	echo 'else echo "unrecognized option $$1" ; echo "$$USAGE" ; exit 1 ; fi' >> "$(BIN_DIR)/libherc-config"
 	echo 'done' >> "$(BIN_DIR)/libherc-config"
 	chmod +x "$(BIN_DIR)/libherc-config"

@@ -87,6 +87,9 @@ similar to `std::vector` in C++.
   * Add khash 928581a78413bed4efa956731b35b18a638f20f3
 * 0.0.1
   * Add rxi/vec 0.2.1
+  * `libherc-config` now has a `--want` flag
+    * `libherc-config --want X.Y.Z` will exit 0 if the installed libherc
+      version provides version X.Y.Z or better, and 1 otherwise.
 
 # Roadmap
 
