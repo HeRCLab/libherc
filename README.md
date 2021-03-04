@@ -104,8 +104,15 @@ similar to `std::vector` in C++.
   inter-operating with other HeRC libraries, since they can all use a common
   type to represent the same data. This is a good candidate for automated code
   generation.
-* [`sheredom/subprocess.h`](https://github.com/sheredom/subprocess.h) seems like
-  nice wrapper that offers Python `subprocess`-like functionality.
+* [`sheredom/subprocess.h`](https://github.com/sheredom/subprocess.h) seems
+  like nice wrapper that offers Python `subprocess`-like functionality.
+* [DaveGamble/cJSON](https://github.com/DaveGamble/cJSON) a small JSON
+  library implemented in C89.
+* [benhoyt/inih](https://github.com/benhoyt/inih) an INI parser, similar
+  to Python's ConfigParser.
+* Some kind of graph library, ideally supporting both directed and undirected
+  graphs. We may need to write our own.
+* Some kind of linear algebra library. Possibly BLAS plus some wrappers.
 
 ## Wishlist
 
