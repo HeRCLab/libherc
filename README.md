@@ -23,13 +23,25 @@ sudo make PREFIX=/usr/local install
 
 These `make` variables are influential:
 * `PREFIX` - libraries will be placed in `PREFIX/lib`, `PREFIX/include`, and
-  `PREFIX/bin` as appropraite
+  `PREFIX/bin` as appropriate
 * `CC` - C compiler to be used
 * `CFLAGS` - C flags to be used
 * `CINCLUDE` - C includes
 
 You can run `make info` to see what compiler flags are being used, and where
 the library will be installed.
+
+## Troubleshooting
+
+### `error while loading shared libraries: libherc.so: cannot open shared object file: No such file or directory`
+
+Some distributions do not add `/usr/local/lib` to `LD_LIBRARY_PATH` by default.
+You should either change `PREFIX` to somewhere your distribution will find it,
+or else add `/usr/local/lib` to `LD_LIBRARY_PATH`.
+
+Ubuntu users are advised to add `export
+LD_LIBRARY_PATH="/lib:/usr/lib:/usr/local/lib"` to `~/.bashrc` as described
+[here](https://askubuntu.com/a/165037).
 
 # Compiling
 
